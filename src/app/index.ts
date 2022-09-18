@@ -1,10 +1,11 @@
 import * as Joi from '@hapi/joi';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { NODE_ENV } from './app/constants';
-import { DatabaseModule } from './database';
+import { AppController } from './controllers';
+import { AppService } from './services';
+import { NODE_ENV } from './constants';
+import { DatabaseModule } from '../database';
+import { UserModule } from '../user';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { DatabaseModule } from './database';
       }),
     }),
     DatabaseModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
