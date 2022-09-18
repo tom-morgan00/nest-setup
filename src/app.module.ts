@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { NODE_ENV } from './app/constants';
+import { DatabaseModule } from './database';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { NODE_ENV } from './app/constants';
         MYSQL_DB: Joi.string().required(),
       }),
     }),
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
