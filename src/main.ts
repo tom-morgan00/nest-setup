@@ -6,6 +6,7 @@ import { AppModule } from './app';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
+
   const reflector = app.get(Reflector);
   app.enableCors();
   app.setGlobalPrefix('api/v1');

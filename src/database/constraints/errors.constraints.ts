@@ -1,3 +1,3 @@
 export enum MySqlErrorCode {
-  UniqueViolation = '23505',
+  UniqueViolation = 'ER_DUP_ENTRY',
 }

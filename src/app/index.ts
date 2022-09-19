@@ -6,6 +6,7 @@ import { AppService } from './services';
 import { NODE_ENV } from './constants';
 import { DatabaseModule } from '../database';
 import { UserModule } from '../user';
+import { AuthModule } from 'src/auth';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { UserModule } from '../user';
       }),
     }),
     DatabaseModule,
+    AuthModule,
     UserModule,
   ],
   controllers: [AppController],

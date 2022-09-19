@@ -1,4 +1,6 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { AuthEntity } from 'src/auth/entities';
 import { Repository, QueryRunner } from 'typeorm';
 import { CreateUserDto } from '../dtos';
 import { UserEntity } from '../entities';
@@ -6,9 +8,12 @@ import { UserEntity } from '../entities';
 
 @Injectable()
 export class UserService {
-  constructor(private readonly userRepo: Repository<UserEntity>) {}
+  constructor(
+    @InjectRepository(UserEntity)
+    private readonly userRepo: Repository<UserEntity>,
+  ) {}
 
-  async createUser(
+  public async createUser(
     createUserDto: CreateUserDto,
     authEntity: AuthEntity,
     queryRunner: QueryRunner,
