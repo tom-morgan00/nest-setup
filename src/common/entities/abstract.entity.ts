@@ -10,16 +10,6 @@ export abstract class AbstractEntity {
   @PrimaryGeneratedColumn()
   public id: number;
 
-  @Column({ unique: true })
-  public email: string;
-
-  @Column()
-  public name: string;
-
-  @Column()
-  @Exclude()
-  public hash: string;
-
   @CreateDateColumn()
   @Exclude()
   public createdAt: Date;
